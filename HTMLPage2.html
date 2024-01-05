@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <style>
+        .world-map {
+            position: absolute;
+        }
+
+        .button-element {
+            position: relative;
+            z-index: 20;
+            animation: fadein 1s;
+        }
+
+        .map-img {
+            background-position: center center;
+        }
+
+        .partner-logos {
+            background-position: center center;
+            height: 120px;
+            width: 200px;
+            animation: fadein 2s;
+        }
+
+            .partner-logos:hover {
+                cursor: pointer;
+            }
+
+        .country-buttons {
+            position: relative;
+            background-color: white;
+            border: 1px solid steelblue;
+            color: steelblue;
+            text-align: center;
+            width: 130px;
+            height: 30px;
+            font-size: medium;
+            border-radius: 25px;
+        }
+
+            .country-buttons:hover {
+                background-color: steelblue;
+                color: white;
+                cursor: pointer;
+            }
+
+        .region-grid {
+            display: grid;
+            grid-template: 100px / 180px 180px 180px;
+            position: absolute;
+            display: none;
+        }
+
+
+        @keyframes fadein {
+            from {
+                opacity: 0%;
+            }
+
+            to {
+                opacity: 100%;
+            }
+        }
+
+
+        #back-element {
+            position: relative;
+            z-index: 30;
+            display: none;
+        }
+
+        #back {
+            position: relative;
+            border: none;
+            color: black;
+            left: 750px;
+            top: 20px;
+        }
+
+            #back:hover {
+                cursor: pointer;
+                background-color: white;
+            }
+
+        #america {
+            left: 110px;
+            top: 240px;
+        }
+
+        #america-grid {
+            left: 225px;
+            top: 250px;
+            z-index: 1;
+        }
+
+        #europe {
+            left: 380px;
+            top: 190px;
+            animation-delay: 0.5s;
+        }
+
+        #europe-grid {
+            left: 30px;
+            top: 60px;
+            z-index: 7;
+        }
+
+        #east {
+            left: 430px;
+            top: 225px;
+            animation-delay: 0.6s;
+        }
+
+        #east-grid {
+            left: 125px;
+            top: 250px;
+            z-index: 3;
+        }
+
+        #africa {
+            left: 415px;
+            top: 280px;
+            animation-delay: 0.5s;
+        }
+
+        #africa-grid {
+            left: 325px;
+            top: 250px;
+            z-index: 4;
+        }
+
+        #asia {
+            left: 630px;
+            top: 150px;
+            animation-delay: 0.8s;
+        }
+
+        #asia-grid {
+            left: 225px;
+            top: 250px;
+            z-index: 5;
+        }
+
+        #oceania {
+            left: 700px;
+            top: 250px;
+            animation-delay: 1s;
+        }
+
+        #oceania-grid {
+            left: 225px;
+            top: 250px;
+            z-index: 6;
+        }
+    </style>
+</head>
+<body>
+    <div style="">
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Blue-Gradient.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/North-America.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/South-America.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Africa.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Europe.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Scandinavia.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Middle-East.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Asia.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Russia.svg" class="map-img">
+        </div>
+        <div class="world-map">
+            <img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Oceania.svg" class="map-img">
+        </div>
+
+
+        <div id="back-element">
+            <button type="button" id="back" onclick="goBack()">
+                << Back
+            </button>
+        </div>
+
+        <div class="button-element">
+            <button type="button" class="country-buttons" id="america" onclick="showAmerica()">
+                North America
+            </button>
+        </div>
+        <div class="button-element">
+            <button type="button" class="country-buttons" id="europe" onclick="showEurope()">
+                Europe
+            </button>
+        </div>
+        <div class="button-element">
+            <button type="button" class="country-buttons" id="east" onclick="showEast()">
+                Middle East
+            </button>
+        </div>
+        <div class="button-element">
+            <button type="button" class="country-buttons" id="africa" onclick="showAfrica()">
+                Africa
+            </button>
+        </div>
+        <div class="button-element">
+            <button type="button" class="country-buttons" id="asia" onclick="showAsia()">
+                Asia
+            </button>
+        </div>
+        <div class="button-element">
+            <button type="button" class="country-buttons" id="oceania" onclick="showOceania()">
+                Oceania
+            </button>
+        </div>
+
+
+        <div class="region-grid" id="europe-grid">
+            <a href="https://abiom.nl/nl/home/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Albiom.svg" class="partner-logos"></a>
+            <a href="https://www.akruks.sk/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Akruks.svg" class="partner-logos"></a>
+            <a href="https://www.datamatik.no/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Datamatik.svg" class="partner-logos"></a>
+            <a href="https://www.groupe-ssi.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/GSSI_1.svg" class="partner-logos"></a>
+            <a href="https://www.hisparasa.es/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Hisparasa_1.svg" class="partner-logos"></a>
+            <a href="https://www.interlinkcs.cz/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Interlink.svg" class="partner-logos"></a>
+            <a href="https://www.lenar-jagd.hu/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Lenar.svg" class="partner-logos"></a>
+            <a href="https://www.microlink.hr/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/MicroLink.svg" class="partner-logos"></a>
+            <a href="https://microworld.ro/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/MicroWorld.svg" class="partner-logos"></a>
+            <a href="https://www.northcom.se/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Northcom.svg" class="partner-logos"></a>
+            <a href="https://racijos.lt/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/NVENTAWires_ALL4WIFI.svg" class="partner-logos"></a>
+            <a href="https://www.radiocom.ee/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Radiocom_Baltic.svg" class="partner-logos"></a>
+            <a href="https://www.rtcom.pl/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/RTCOM.svg" class="partner-logos"></a>
+            <a href="https://www.safecitysp.com/en/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Safe_City_Security_Projects.svg" class="partner-logos"></a>
+            <a href="https://www.tassta.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Tassta.svg" class="partner-logos"></a>
+            <a href="https://www.tranzcom.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Transcom.svg" class="partner-logos"></a>
+            <a href="http://www.zodax.rs/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Zodax.svg" class="partner-logos"></a>
+        </div>
+        <div class="region-grid" id="africa-grid">
+            <a href="https://www.altronnexussolutions.co.za/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Alcom_SA.svg" class="partner-logos"></a>
+        </div>
+        <div class="region-grid" id="oceania-grid">
+            <a href="https://defcon.com.au/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Defcon.svg" class="partner-logos"></a>
+            <a href="https://www.bydandtechnicalsolutions.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Bydand.svg" class="partner-logos"></a>
+        </div>
+        <div class="region-grid" id="america-grid">
+            <a href="https://www.leacorp.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/leaaid.svg" class="partner-logos"></a>
+            <a href="https://procom2way.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/procom.svg" class="partner-logos"></a>
+        </div>
+        <div class="region-grid" id="asia-grid">
+            <a href="https://eclipsesecurity.my/"><img src="https://sonic-comms.com/wp-content/uploads/2024/01/Untitled-1.png" class="partner-logos"></a>
+            <a href=""><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/VTD.svg" class="partner-logos"></a>
+        </div>
+        <div class="region-grid" id="east-grid">
+            <a href="http://www.netrevo.com.sa/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/NETREVO.svg" class="partner-logos"></a>
+            <a href="http://www.omzest.com/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Wacom.svg" class="partner-logos"></a>
+            <a href="http://www.oztekinticaret.com/en/"><img src="https://home-5010125761.webspace-host.com/wordpress/Partners/Oztekin.svg" class="partner-logos"></a>
+        </div>
+    </div>
+
+
+
+    <script>
+        function goBack() {
+            var back = document.getElementsByClassName("region-grid");
+            var button = document.getElementsByClassName("button-element");
+            document.getElementById("back-element").style.display = "none";
+
+            for (var i = 0; i < 6; i++) {
+                back[i].style.display = "none";
+                button[i].style.display = "block";
+            }
+        }
+
+        function showAmerica() {
+            document.getElementById("america-grid").style.display = "block";
+            document.getElementById("back-element").style.display = "block";
+            var button = document.getElementsByClassName("button-element");
+
+            for (var i = 0; i < 6; i++) {
+                button[i].style.display = "none";
+            }
+        }
+        function showEurope() {
+            document.getElementById("europe-grid").style.display = "block";
+            document.getElementById("back-element").style.display = "block";
+            var button = document.getElementsByClassName("button-element");
+
+            for (var i = 0; i < 6; i++) {
+                button[i].style.display = "none";
+            }
+        }
+        function showAfrica() {
+            document.getElementById("africa-grid").style.display = "block";
+            document.getElementById("back-element").style.display = "block";
+            var button = document.getElementsByClassName("button-element");
+
+            for (var i = 0; i < 6; i++) {
+                button[i].style.display = "none";
+            }
+        }
+        function showEast() {
+            document.getElementById("east-grid").style.display = "block";
+            document.getElementById("back-element").style.display = "block";
+            var button = document.getElementsByClassName("button-element");
+
+            for (var i = 0; i < 6; i++) {
+                button[i].style.display = "none";
+            }
+        }
+        function showAsia() {
+            document.getElementById("asia-grid").style.display = "block";
+            document.getElementById("back-element").style.display = "block";
+            var button = document.getElementsByClassName("button-element");
+
+            for (var i = 0; i < 6; i++) {
+                button[i].style.display = "none";
+            }
+        }
+        function showOceania() {
+            document.getElementById("oceania-grid").style.display = "block";
+            document.getElementById("back-element").style.display = "block";
+            var button = document.getElementsByClassName("button-element");
+
+            for (var i = 0; i < 6; i++) {
+                button[i].style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
